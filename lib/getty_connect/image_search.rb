@@ -4,6 +4,7 @@ require 'uri'
 
 module GettyConnect
   module ImageSearch
+    PATH = '/v2/search/SearchForImages'
 
     def self.run(token, query, offset=1, count=10)
       body = {
@@ -20,12 +21,16 @@ module GettyConnect
 
       body[:SearchForImagesRequestBody].merge! query
 
-      uri = URI.parse "#{GettyConnect::BASE_URI}/v2/search/SearchForImages"
+      uri = self.uri
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = uri.is_a?(URI::HTTPS)
 
       response = http.post(uri.path, body.to_json, {'Content-Type' =>'application/json'})
       JSON.parse(response.body)
+    end
+
+    def self.uri
+      URI.parse "#{GettyConnect::BASE_URI}#{PATH}"
     end
 
   end
