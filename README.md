@@ -18,7 +18,16 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Configuration
+
+`config/initializers/getty_connect.rb`:
+
+    require 'getty_connect'
+    GettyConnect::Configuration.load(File.join(Rails.root, 'config', 'getty_connect.yml'))
+
+### Examples
+
+See the examples directory.
 
 ## Contributing
 
