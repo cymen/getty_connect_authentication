@@ -1,7 +1,7 @@
 $:.unshift File.expand_path('../../lib', __FILE__)
 require 'getty_connect'
 
-GettyConnect::Configuration.load(File.join(Dir.pwd, '..', 'config.yml'))
+GettyConnect::Configuration.load(File.expand_path('../../config.yml', __FILE__))
 @token = GettyConnect.token
 query = {
   Query: {
