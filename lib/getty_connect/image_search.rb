@@ -4,7 +4,7 @@ require 'uri'
 
 module GettyConnect
   module ImageSearch
-    PATH = '/v2/search/SearchForImages'
+    PATH = 'v2/search/SearchForImages'
 
     def self.run(token, query, offset=1, count=10)
       body = {
@@ -30,7 +30,7 @@ module GettyConnect
     end
 
     def self.uri
-      URI.parse "#{GettyConnect::BASE_URI}#{PATH}"
+      URI.parse "#{GettyConnect::BASE_URI}/#{PATH}"
     end
 
   end

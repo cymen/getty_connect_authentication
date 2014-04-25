@@ -3,6 +3,7 @@ require 'getty_connect'
 
 GettyConnect::Configuration.load(File.expand_path('../../config.yml', __FILE__))
 @token = GettyConnect.token
+GettyConnect.token
 query = {
   Query: {
     SearchPhrase: 'tree'

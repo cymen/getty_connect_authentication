@@ -2,8 +2,12 @@ require 'spec_helper'
 
 describe GettyConnect do
 
-  it 'token_invalid? returns true by default' do
+  specify 'token_invalid? returns true by default' do
     GettyConnect.token_invalid?.should be_true
+  end
+
+  specify 'uri returns the URI' do
+    GettyConnect.uri.to_s.should == 'https://connect.gettyimages.com/oauth2/token'
   end
 
   describe 'token' do
