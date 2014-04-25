@@ -16,6 +16,13 @@ Or install it yourself as:
 
     $ gem install getty_connect
 
+## Completion
+
+Only a subset of the API is implemented so far:
+
+* getting a token
+* searching for images
+
 ## Usage
 
 ### Configuration
@@ -24,6 +31,11 @@ Or install it yourself as:
 
     require 'getty_connect'
     GettyConnect::Configuration.load(File.join(Rails.root, 'config', 'getty_connect.yml'))
+
+`getty_config.yml`:
+
+    id: provided by Getty
+    secret: provided by Getty
 
 ### Examples
 
