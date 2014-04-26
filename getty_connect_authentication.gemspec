@@ -9,6 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Cymen Vig"]
   spec.email         = ["cymenvig@gmail.com"]
   spec.summary       = "Authentication for the Getty Images Connect API"
+  spec.description   = "Fetch authentication tokens from the Getty Images Connect API v2"
   spec.homepage      = "https://github.com/cymen/getty_connect_authentication"
   spec.license       = "MIT"
 
@@ -19,6 +20,6 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rspec", "~> 2.14"
-  spec.add_development_dependency "rake", "~> 10.3.1"
-  spec.add_development_dependency "webmock", "~> 1.17.4"
+  spec.add_development_dependency "rake", "~> 10"
+  spec.add_development_dependency "webmock", "~> 1.17"
 end
