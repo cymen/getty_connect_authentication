@@ -9,25 +9,7 @@ module GettyConnect
   BASE_URI = 'https://connect.gettyimages.com'
   PATH = 'oauth2/token'
 
-  def self.expires
-    @expires
-  end
-
   def self.token
-    if token_invalid?
-      response = request_token
-      @expires = Time.now.to_i + response['expires_in'].to_i
-      @token = response['access_token']
-    end
-
-    @token
-  end
-
-  def self.token_invalid?
-    !@expires || @expires <= Time.now.to_i
-  end
-
-  def self.request_token
     uri = self.uri
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = uri.is_a?(URI::HTTPS)

@@ -2,10 +2,6 @@ require 'spec_helper'
 
 describe GettyConnect do
 
-  specify 'token_invalid? returns true by default' do
-    GettyConnect.token_invalid?.should be_true
-  end
-
   specify 'uri returns the URI' do
     GettyConnect.uri.to_s.should == 'https://connect.gettyimages.com/oauth2/token'
   end
@@ -39,9 +35,9 @@ describe GettyConnect do
         body: {access_token: 'a', expires_in: 10}.to_json
       )
 
-      GettyConnect.token
+      response = GettyConnect.token
 
-      GettyConnect.expires.should be_within(1).of(Time.now.to_i + 10)
+      response['expires_in'].should be_within(1).of(10)
     end
 
     it 'returns the token in the response' do
@@ -51,35 +47,9 @@ describe GettyConnect do
         body: {access_token: 'the_token', expires_in: 10}.to_json
       )
 
-      GettyConnect.token.should == 'the_token'
-    end
+      response = GettyConnect.token
 
-    it 'does not request another token if the current token is still valid' do
-      stub_request(:any, url).to_return(
-        status: 200,
-        headers: {'Content-Type' => 'application/json'},
-        body: {access_token: 'a', expires_in: 10}.to_json
-      )
-
-      GettyConnect.token
-      GettyConnect.token
-
-      a_request(:post, url).should have_been_made.once
-    end
-
-    it 'does request another token when the current token has expired' do
-      stub_request(:any, url).to_return(
-        status: 200,
-        headers: {'Content-Type' => 'application/json'},
-        body: {access_token: 'a', expires_in: 1}.to_json
-      )
-
-      GettyConnect.token
-      GettyConnect.reset
-      GettyConnect.token_invalid?.should == true
-      GettyConnect.token
-
-      a_request(:post, url).should have_been_made.twice
+      response['access_token'].should == 'the_token'
     end
 
     it 'raises an error if the response code is not 200' do
