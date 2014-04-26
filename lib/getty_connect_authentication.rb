@@ -16,7 +16,9 @@ module GettyConnectAuthentication
     body = {
       client_id: Configuration.id,
       client_secret: Configuration.secret,
-      grant_type: 'client_credentials'
+      grant_type: 'client_credentials',
+      username: Configuration.username,
+      password: Configuration.password
     }
 
     request = Net::HTTP::Post.new(uri.request_uri)

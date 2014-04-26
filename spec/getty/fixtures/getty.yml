@@ -1,2 +1,4 @@
 id: my_id
 secret: my_secret
+username: my_username
+password: my_password

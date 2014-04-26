@@ -25,7 +25,8 @@ describe GettyConnectAuthentication do
       GettyConnectAuthentication.token
 
       a_request(:post, url).
-        with(body: "client_id=my_id&client_secret=my_secret&grant_type=client_credentials").should have_been_made.once
+        with(body: "client_id=my_id&client_secret=my_secret&grant_type=client_credentials&username=my_username&password=my_password").
+        should have_been_made.once
     end
 
     it 'sets expires to current timestamp plus response expires_in value' do
