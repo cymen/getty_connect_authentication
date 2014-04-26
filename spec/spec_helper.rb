@@ -1,3 +1,3 @@
 require 'webmock/rspec'
-require 'getty_connect'
-require 'getty_connect/configuration'
+require 'getty_connect_authentication'
+require 'getty_connect_authentication/configuration'

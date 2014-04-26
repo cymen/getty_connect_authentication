@@ -1,4 +1,4 @@
-# GettyConnect
+# GettyConnectAuthentication
 
 Access the Getty Connect API.
 
@@ -6,7 +6,7 @@ Access the Getty Connect API.
 
 Add this line to your application's Gemfile:
 
-    gem 'getty_connect'
+    gem 'getty_connect_authentication'
 
 And then execute:
 
@@ -14,7 +14,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install getty_connect
+    $ gem install getty_connect_authentication
 
 ## Completion
 
@@ -27,10 +27,10 @@ Only a subset of the API is implemented so far:
 
 ### Configuration
 
-`config/initializers/getty_connect.rb`:
+`config/initializers/getty_connect_authentication.rb`:
 
-    require 'getty_connect'
-    GettyConnect::Configuration.load(File.join(Rails.root, 'config', 'getty_connect.yml'))
+    require 'getty_connect_authentication'
+    GettyConnectAuthentication::Configuration.load(File.join(Rails.root, 'config', 'getty_config.yml'))
 
 `getty_config.yml`:
 
@@ -39,11 +39,11 @@ Only a subset of the API is implemented so far:
 
 ### Examples
 
-See the examples directory.
+See the example directory.
 
 ## Contributing
 
-1. Fork it ( https://github.com/cymen/getty_connect/fork )
+1. Fork it ( https://github.com/cymen/getty_connect_authentication/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

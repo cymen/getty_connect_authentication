@@ -1,6 +1,6 @@
 require 'yaml'
 
-module GettyConnect
+module GettyConnectAuthentication
   module Configuration
 
     def self.load(path_to_yaml_file)

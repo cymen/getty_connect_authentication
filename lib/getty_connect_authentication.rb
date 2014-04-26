@@ -1,10 +1,10 @@
-require 'getty_connect/version'
-require 'getty_connect/configuration'
+require 'getty_connect_authentication/version'
+require 'getty_connect_authentication/configuration'
 require 'json'
 require 'net/http'
 require 'uri'
 
-module GettyConnect
+module GettyConnectAuthentication
   BASE_URI = 'https://connect.gettyimages.com'
   PATH = 'oauth2/token'
 

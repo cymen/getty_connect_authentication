@@ -1,15 +1,15 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'getty_connect/version'
+require 'getty_connect_authentication/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "getty_connect"
-  spec.version       = GettyConnect::VERSION
+  spec.name          = "getty_connect_authentication"
+  spec.version       = GettyConnectAuthentication::VERSION
   spec.authors       = ["Cymen Vig"]
   spec.email         = ["cymenvig@gmail.com"]
-  spec.summary       = "Getty Images Connect API"
-  spec.homepage      = "https://github.com/cymen/getty_connect"
+  spec.summary       = "Authentication for the Getty Images Connect API"
+  spec.homepage      = "https://github.com/cymen/getty_connect_authentication"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

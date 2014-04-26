@@ -1,18 +1,18 @@
 require 'spec_helper'
 
-describe GettyConnect do
+describe GettyConnectAuthentication do
 
   specify 'uri returns the URI' do
-    GettyConnect.uri.to_s.should == 'https://connect.gettyimages.com/oauth2/token'
+    GettyConnectAuthentication.uri.to_s.should == 'https://connect.gettyimages.com/oauth2/token'
   end
 
   describe 'token' do
     url = nil
 
     before(:each) do
-      GettyConnect.reset
-      GettyConnect::Configuration.load(File.join(File.dirname(__FILE__), 'fixtures', 'getty.yml'))
-      url = "#{GettyConnect::BASE_URI}/oauth2/token"
+      GettyConnectAuthentication.reset
+      GettyConnectAuthentication::Configuration.load(File.join(File.dirname(__FILE__), 'fixtures', 'getty.yml'))
+      url = "#{GettyConnectAuthentication::BASE_URI}/oauth2/token"
     end
 
     it 'sends a request to BASE_URI/oauth2/token' do
@@ -22,7 +22,7 @@ describe GettyConnect do
         body: {access_token: 'a', expires_in: 10}.to_json
       )
 
-      GettyConnect.token
+      GettyConnectAuthentication.token
 
       a_request(:post, url).
         with(body: "client_id=my_id&client_secret=my_secret&grant_type=client_credentials").should have_been_made.once
@@ -35,7 +35,7 @@ describe GettyConnect do
         body: {access_token: 'a', expires_in: 10}.to_json
       )
 
-      response = GettyConnect.token
+      response = GettyConnectAuthentication.token
 
       response['expires_in'].should be_within(1).of(10)
     end
@@ -47,7 +47,7 @@ describe GettyConnect do
         body: {access_token: 'the_token', expires_in: 10}.to_json
       )
 
-      response = GettyConnect.token
+      response = GettyConnectAuthentication.token
 
       response['access_token'].should == 'the_token'
     end
@@ -55,7 +55,7 @@ describe GettyConnect do
     it 'raises an error if the response code is not 200' do
       stub_request(:any, url).to_return(status: 403)
 
-      expect { GettyConnect.token }.to raise_error
+      expect { GettyConnectAuthentication.token }.to raise_error
     end
 
   end
