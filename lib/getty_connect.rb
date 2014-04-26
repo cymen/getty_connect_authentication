@@ -1,6 +1,5 @@
 require 'getty_connect/version'
 require 'getty_connect/configuration'
-require 'getty_connect/image_search'
 require 'json'
 require 'net/http'
 require 'uri'
