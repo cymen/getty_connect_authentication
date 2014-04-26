@@ -16,7 +16,7 @@ module GettyConnectAuthentication
     body = {
       client_id: Configuration.id,
       client_secret: Configuration.secret,
-      grant_type: 'client_credentials',
+      grant_type: 'password',
       username: Configuration.username,
       password: Configuration.password
     }
