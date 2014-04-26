@@ -8,9 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = GettyConnect::VERSION
   spec.authors       = ["Cymen Vig"]
   spec.email         = ["cymenvig@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = "Getty Images Connect API"
+  spec.homepage      = "https://github.com/cymen/getty_connect"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
