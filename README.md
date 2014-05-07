@@ -1,6 +1,6 @@
 # GettyConnectAuthentication
 
-Access the Getty Connect API.
+Authenticate with the Getty Connect API.
 
 ## Installation
 
@@ -15,13 +15,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install getty_connect_authentication
-
-## Completion
-
-Only a subset of the API is implemented so far:
-
-* getting a token
-* searching for images
 
 ## Usage
 
